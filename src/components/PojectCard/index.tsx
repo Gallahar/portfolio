@@ -2,12 +2,12 @@ import { ActionButton } from '@/shared/ui/ActionButton'
 import {
 	ButtonsWrapper,
 	Card,
-	CardDescription,
 	CardDivider,
 	CardImage,
 	CardTitle,
 } from './projectCard.style'
 import { FC } from 'react'
+import { BaseDescription } from '@/shared/ui/typography'
 
 interface CardProps {
 	slides: string[]
@@ -31,7 +31,7 @@ export const ProjectCard: FC<CardProps> = ({
 			<CardImage onClick={onClickImg} src={slides[0]} alt={`${title}-img`} />
 			<CardTitle>{title}</CardTitle>
 			<CardDivider />
-			<CardDescription>{description}</CardDescription>
+			<BaseDescription>{description}</BaseDescription>
 			<ButtonsWrapper>
 				<ActionButton size='md' target='blank' href={previewUrl}>
 					Look it up

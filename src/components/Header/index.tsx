@@ -2,10 +2,19 @@ import * as Styled from './header.style'
 import { navData, socialsData } from './data'
 import { IconLogo } from 'src/assets/icons/IconLogo'
 import { IconLink, TextLink } from '@/shared/ui/links'
+import { useRef } from 'react'
+import { useWindowScroll } from '@/lib/hooks/useWindowScroll'
 
 export const Header = () => {
+	const headerRef = useRef<HTMLElement>(null)
+
+	const { isVisible: isSticky } = useWindowScroll(
+		headerRef.current?.clientHeight || 60,
+		10
+	)
+
 	return (
-		<Styled.HeaderWrapper>
+		<Styled.HeaderWrapper $isSticky={isSticky} ref={headerRef}>
 			<Styled.HeaderContainer>
 				<IconLogo />
 				<Styled.Nav>

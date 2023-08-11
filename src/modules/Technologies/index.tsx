@@ -8,15 +8,23 @@ import {
 import { TechnologyCard } from '@/components/TechnologyCard'
 import { technologiesList } from './data'
 import { BaseTitle } from '@/shared/ui/typography'
+import { useInView } from '@/lib/hooks/useInView'
 
 export const Technologies = () => {
+	const { intersectingSection, sectionRef } = useInView()
+
 	return (
-		<TechnologiesSection id='Technologies'>
+		<TechnologiesSection ref={sectionRef} id='Technologies'>
 			<Container>
 				<BaseTitle>Technologies</BaseTitle>
 				<ProgressCardsWrapper>
 					{technologiesList.map((technology, i) => (
-						<TechnologyCard key={technology.title} delay={i} {...technology} />
+						<TechnologyCard
+							isIntersecting={intersectingSection === 'Technologies'}
+							key={technology.title}
+							delay={i}
+							{...technology}
+						/>
 					))}
 				</ProgressCardsWrapper>
 			</Container>

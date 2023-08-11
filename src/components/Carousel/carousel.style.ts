@@ -48,7 +48,7 @@ export const CarouselTrack = styled('ul')<CarouselTrackProps>`
 export const CarouselControl = styled('button')<{ $isVisible: boolean }>`
 	position: absolute;
 	opacity: ${(props) => (props.$isVisible ? 1 : 0)};
-	z-index: 2;
+	z-index: 4;
 	color: #6978d1;
 	border-radius: 0 20px 20px 0;
 	background-color: rgba(0, 0, 0, 0.5);

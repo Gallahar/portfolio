@@ -30,11 +30,6 @@ export const CardTitle = styled('h3')`
 	text-align: center;
 `
 
-export const CardDescription = styled('p')`
-	font-size: 2.8rem;
-	max-width: 500px;
-`
-
 export const CardDivider = styled('span')`
 	max-width: 300px;
 	width: 100%;

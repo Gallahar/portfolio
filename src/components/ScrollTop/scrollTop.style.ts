@@ -24,6 +24,7 @@ export const Button = styled('button')<{ $isVisible: boolean }>`
 	animation: ${soaring} 1s infinite ease-in alternate;
 	background-size: 100%;
 	transition: all 0.2s ease-in;
+	z-index: 2;
 	&:hover {
 		background-size: 150%;
 		text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);

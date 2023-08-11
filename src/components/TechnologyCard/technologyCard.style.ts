@@ -1,17 +1,21 @@
 import styled, { keyframes } from 'styled-components'
 
 type ProgressAnimation = {
+	$isIntersecting: boolean
 	$maxSize: number
 	$delay: number
 }
 
-export const progressAnimation = (props: ProgressAnimation) => keyframes`
+export const progressAnimation = ({
+	$isIntersecting,
+	$maxSize,
+}: ProgressAnimation) => keyframes`
 0%{
 	width: 0%;
 }
 
 100%{
-	width: ${props.$maxSize}%;
+	width: ${$isIntersecting ? $maxSize : 0}%;
 }
 `
 
