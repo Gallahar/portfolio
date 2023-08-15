@@ -46,10 +46,9 @@ export const Carousel: FC<CarouselProps> = ({ slides, closeCarousel }) => {
 					<IconArrowLeft />
 				</CarouselControl>
 				<CarouselTrack $multiplier={activeSlide}>
-					{slides.map((slide) => {
-						console.log(slide)
-						return <CarouselItem $url={slide} key={slide} />
-					})}
+					{slides.map((slide) => (
+						<CarouselItem $url={slide} key={slide} />
+					))}
 				</CarouselTrack>
 				<CarouselControlRight
 					as='button'
