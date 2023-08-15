@@ -4,7 +4,6 @@ import {
 	ProgressBarThumb,
 	ProgressBarTrack,
 } from './technologyCard.style'
-import { useIntersectionContext } from '@/lib/hooks/useIntersectionContext'
 
 interface ProgressCardProps {
 	title: string
@@ -18,7 +17,8 @@ export const TechnologyCard: FC<ProgressCardProps> = ({
 	title,
 	level,
 	progress,
-	delay,isIntersecting
+	delay,
+	isIntersecting,
 }) => {
 	return (
 		<div>
