@@ -9,14 +9,16 @@ export const Hero = () => {
 			<HeroSVG />
 			<Container>
 				<ContentWrapper>
-					<HeroTitle>Hello, my name is David!</HeroTitle>
+					<HeroTitle>Hello, im David!</HeroTitle>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam
 						exercitationem officiis vitae recusandae dolor sapiente ea omnis?
 						Accusamus ratione officiis nulla, nihil, sit ea ad ex repellendus
 						placeat nisi voluptatibus!
 					</p>
-					<ActionButton size='lg'>Let's begin</ActionButton>
+					<ActionButton href='#Projects' size='lg'>
+						Let's begin
+					</ActionButton>
 				</ContentWrapper>
 			</Container>
 		</HeroWrapper>

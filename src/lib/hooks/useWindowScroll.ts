@@ -18,7 +18,7 @@ export const useWindowScroll = (amount: number, frequency?: number) => {
 		window.addEventListener('scroll', throttledScroll)
 
 		return () => window.removeEventListener('scroll', throttledScroll)
-	}, [])
+	}, [amount, frequency])
 
 	return { isVisible, setIsVisible }
 }

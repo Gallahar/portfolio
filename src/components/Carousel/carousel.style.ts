@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { appear, scaleIn } from '@/shared/ui/animations'
+import { IconLink } from '@/shared/ui/links'
 
 interface CarouselTrackProps {
 	$multiplier: number
@@ -14,7 +15,7 @@ export const CarouselWrapper = styled('div')`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.8);
 
 	animation: ${appear} 0.2s ease-in forwards;
 `
@@ -22,8 +23,10 @@ export const CarouselWrapper = styled('div')`
 export const CarouselContent = styled('div')`
 	overflow: hidden;
 	position: relative;
-	height: 80%;
-	width: 80%;
+	display: flex;
+	align-items: center;
+	height: 90%;
+	width: 90%;
 
 	animation: ${scaleIn} 0.3s ease-in forwards;
 `
@@ -34,33 +37,40 @@ export const CarouselTrack = styled('ul')<CarouselTrackProps>`
 	padding: 0;
 	display: flex;
 	overflow: unset;
+	height: 100%;
 	width: 100%;
 	transition: transform 0.4s ease-in-out;
 	transform: translate3d(${(props) => -100 * props.$multiplier}%, 0, 0);
-
-	> li {
-		flex-shrink: 0;
-		flex-grow: 1;
-		width: 100%;
-	}
 `
 
-export const CarouselControl = styled('button')<{ $isVisible: boolean }>`
+export const CarouselItem = styled('li')<{ $url: string }>`
+	background-image: url(${({ $url }) => $url});
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	flex-shrink: 0;
+	flex-grow: 1;
+	height: 100%;
+	width: 100%;
+`
+
+export const CarouselControl = styled(IconLink)<{ $isVisible: boolean }>`
 	position: absolute;
 	opacity: ${(props) => (props.$isVisible ? 1 : 0)};
 	z-index: 4;
-	color: #6978d1;
 	border-radius: 0 20px 20px 0;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.8);
 	backdrop-filter: blur(20px);
-	font-size: 6rem;
-	padding: 0.5em;
 	top: 50%;
 	transform: translateY(-50%);
-	transition: opacity 0.2s ease-in, color 0.1s ease-in;
-
-	&:hover {
-		color: inherit;
+	transition: opacity 0.2s ease-in;
+	cursor: pointer;
+	> svg {
+		width: 100px;
+		height: 100px;
+		> path {
+			stroke: var(--text-primary);
+		}
 	}
 `
 
@@ -69,17 +79,9 @@ export const CarouselControlRight = styled(CarouselControl)`
 	border-radius: 20px 0 0 20px;
 `
 
-export const CloseButton = styled('button')`
+export const CloseButton = styled(IconLink)`
 	position: fixed;
-	font-size: 10rem;
 	z-index: 4;
 	top: 0.3em;
 	right: 0.5em;
-	color: #6978d1;
-	transition: all 0.2s ease-in;
-	line-height: 70%;
-	&:hover {
-		transform: scale(1.2);
-		color: inherit;
-	}
 `

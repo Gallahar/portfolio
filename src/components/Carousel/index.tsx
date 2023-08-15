@@ -3,12 +3,16 @@ import {
 	CarouselContent,
 	CarouselControl,
 	CarouselControlRight,
+	CarouselItem,
 	CarouselTrack,
 	CarouselWrapper,
 	CloseButton,
 } from './carousel.style'
 
 import { useCarousel } from './useCarousel'
+import { IconArrowLeft } from '@/assets/icons/IconArrowLeft'
+import { IconArrowRight } from '@/assets/icons/IconArrowRight'
+import { IconCross } from '@/assets/icons/IconCross'
 
 interface CarouselProps {
 	slides: string[]
@@ -27,23 +31,32 @@ export const Carousel: FC<CarouselProps> = ({ slides, closeCarousel }) => {
 
 	return (
 		<CarouselWrapper>
-			<CloseButton onClick={closeCarousel}>&#10007;</CloseButton>
-			<CarouselContent onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseEnter}>
-				<CarouselControl $isVisible={isControlsVisible} onClick={handlePrev}>
-					&#8617;
+			<CloseButton as='button' onClick={closeCarousel}>
+				<IconCross />
+			</CloseButton>
+			<CarouselContent
+				onMouseLeave={handleMouseLeave}
+				onMouseEnter={handleMouseEnter}
+			>
+				<CarouselControl
+					as='button'
+					$isVisible={isControlsVisible}
+					onClick={handlePrev}
+				>
+					<IconArrowLeft />
 				</CarouselControl>
 				<CarouselTrack $multiplier={activeSlide}>
-					{slides.map((slide) => (
-						<li key={slide}>
-							<img src={slide} />
-						</li>
-					))}
+					{slides.map((slide) => {
+						console.log(slide)
+						return <CarouselItem $url={slide} key={slide} />
+					})}
 				</CarouselTrack>
 				<CarouselControlRight
+					as='button'
 					$isVisible={isControlsVisible}
 					onClick={handleNext}
 				>
-					&#8618;
+					<IconArrowRight />
 				</CarouselControlRight>
 			</CarouselContent>
 		</CarouselWrapper>

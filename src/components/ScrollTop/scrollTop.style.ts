@@ -18,8 +18,9 @@ export const Button = styled('button')<{ $isVisible: boolean }>`
 	right: 1em;
 	bottom: 0.5em;
 	color: var(--text-primary);
-	border-radius: 25px;
+	border-radius: 8px;
 	padding: 0.1em 0.1em;
+	line-height: 100%;
 	background: var(--main-gr);
 	animation: ${soaring} 1s infinite ease-in alternate;
 	background-size: 100%;

@@ -11,16 +11,40 @@ export const Card = styled('div')`
 	transition: all 0.4s ease-in-out;
 
 	&:hover {
-		transform: translateY(-20px);
+		transform: scale(1.03);
 		box-shadow: 0px 0px 20px 0px #fff;
 	}
 `
-export const CardImage = styled('img')`
+export const CardImage = styled('div')<{ $url: string }>`
 	border-radius: 8px;
-	max-height: 266px;
-	object-fit: contain;
+	width: 100%;
+	height: 266px;
+	background-image: url(${({ $url }) => $url});
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: grid;
+
+	grid-template-columns: 100%;
+	grid-template-rows: 0%;
+	transition: all 0.5s ease-in-out;
+
+	> span {
+		opacity: 0;
+		display: grid;
+		place-items: center;
+		font-size: 3rem;
+		transition: all 0.5s ease-in-out;
+		background-color: rgba(0, 0, 0, 0.5);
+		backdrop-filter: blur(10px);
+	}
+
 	&:hover {
 		cursor: pointer;
+		grid-template-rows: 100%;
+		> span {
+			opacity: 1;
+		}
 	}
 `
 

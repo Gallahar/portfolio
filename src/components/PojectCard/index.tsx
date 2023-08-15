@@ -28,7 +28,9 @@ export const ProjectCard: FC<CardProps> = ({
 }) => {
 	return (
 		<Card>
-			<CardImage onClick={onClickImg} src={slides[0]} alt={`${title}-img`} />
+			<CardImage onClick={onClickImg} $url={slides[0]}>
+				<span>click/tap for more content</span>
+			</CardImage>
 			<CardTitle>{title}</CardTitle>
 			<CardDivider />
 			<BaseDescription>{description}</BaseDescription>

@@ -5,7 +5,7 @@ import { AboutCard } from '@/components/AboutCard'
 
 export const About = () => {
 	return (
-		<BaseSection>
+		<BaseSection id='About'>
 			<Container>
 				<AboutTitle>About</AboutTitle>
 				<CardsWrapper>
